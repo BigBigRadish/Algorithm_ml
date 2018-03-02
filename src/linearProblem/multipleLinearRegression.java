@@ -134,7 +134,7 @@ public class multipleLinearRegression {
             theta[i]=1.0;
     }
     
-    public void trainTheta()
+    public void trainTheta()//训练参数
     {
         int iteration = this.iteration;
         while( (iteration--)>0 )
@@ -147,7 +147,7 @@ public class multipleLinearRegression {
         }
     }
     
-    private double [] compute_partial_derivative()
+    private double [] compute_partial_derivative()//计算偏导
     {
         double [] partial_derivative = new double[theta.length];
         for(int j =0;j<theta.length;j++)//遍历，对每个theta求偏导数
@@ -182,7 +182,7 @@ public class multipleLinearRegression {
     }
     
     
-    private void loadTrainDataFromFile(String fileName,int row, int column)
+    private void loadTrainDataFromFile(String fileName,int row, int column)//加载训练数据
     {   
         for(int i=0;i< row;i++)//trainData的第一列全部置为1.0（feature x0）
             trainData[i][0]=1.0;
@@ -234,5 +234,11 @@ public class multipleLinearRegression {
         for(double a:theta)
             System.out.print(a+" ");
     }
-
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+         multipleLinearRegression m = new multipleLinearRegression("trainData",0.001,1000000);
+         m.printTrainData();
+         m.trainTheta();
+         m.printTheta();
+    }
 }
