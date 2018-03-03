@@ -46,7 +46,7 @@ for i in range(cnt):#使用牛顿法迭代cnt次得到beta矩阵
         tep=np.linalg.inv(tep)
         beta=beta-np.dot(tep,one(beta))
 ans=np.dot(beta.T,x)
-def sigmoid(p):#sigmoid 函数
+def sigmoid(p):#sigmoid 函数（对数几率函数）
     return 1.0/(1+np.exp(-p))
 for i in range(17):
     print(sigmoid(ans[0,i]))
